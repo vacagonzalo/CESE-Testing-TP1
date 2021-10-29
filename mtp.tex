@@ -8,6 +8,8 @@
 \usepackage{graphicx}
 \usepackage{authoraftertitle}
 \usepackage{float}
+\usepackage{caption}
+\captionsetup[table]{labelformat=empty}
 
 \def\doctype{MASTER TEST PLAN}
 \title{Evaluador de microcontroladores para misiones espaciales}
@@ -138,9 +140,124 @@ Se seleccionan solo aquellas características de calidad que tienen un impacto s
 Se indica a continuación las razones de la asignación de los niveles de prueba:
 
 \begin{itemize}
-    \item \underline{Conectividad:}
-    \item \underline{Funcionalidad:}
-    \item \underline{Fiabilidad:}
-    \item \underline{Usabilidad:}
+    \item \underline{Conectividad:} Las pruebas de integración son las pruebas que determinarán el cumplimiento de los requerimientos de conectividad.
+        Adicionalmente, las pruebas finales de campo demostrarán la correcta comunicación entre los módulos.
+    \item \underline{Funcionalidad:} Las pruebas unitarias sirven para verificar la funcionalidad de cada sub sistema.
+        Finalmente, las pruebas de sistema y aceptación confirmarán que el conjunto funciona de la manera esperada.
+    \item \underline{Fiabilidad:} El sistema está compuesto por módulos desacoplados.
+        Esto significa que la fiabilidad del sistema depende de como se encuentren acoplados.
+        Por estas razones, las pruebas de integración tienen un lugar principal y finalmente, se complementan con las pruebas de campo.
+    \item \underline{Usabilidad:} Las pruebas principales son las de campo, en particular, experimentar la experiencia de usuario al crear y correr un ensayo.
+        Adicionalmente, las pruebas de sistema y aceptación aportan información complementaria.
 \end{itemize}
+
+\section{Estrategia por nivel de prueba}
+\label{sec:estrategia}
+
+Por cada nivel indicado en \ref{sub:asignacion}, se evalúa la estrategia seleccionada.
+
+\subsection{Selección de características de calidad y determinación de la importancia relativa por nivel de prueba}
+\label{sub:importanciaRelativa}
+
+Se indican a continuación, para cada nivel de prueba, las características de calidad y la importancia relativa de cada una de ellas:
+
+\begin{table}[H]
+\centering
+\caption{Pruebas unitarias}
+\begin{tabular}{c|c}
+    Característica de calidad & Importancia relativa \\ \hline
+    Funcionalidad & 100 \\
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{Pruebas de integración}
+\begin{tabular}{c|c}
+    Característica de calidad & Importancia relativa \\ \hline
+    Conectividad & 50 \\
+    Fiabilidad   & 50 \\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Pruebas de sistema}
+\begin{tabular}{c|c}
+    Característica de calidad & Importancia relativa \\ \hline
+    Funcionalidad & 50 \\
+    Usabilidad    & 50 \\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Pruebas de aceptación}
+\begin{tabular}{c|c}
+    Característica de calidad & Importancia relativa \\ \hline
+    Funcionalidad & 75 \\
+    Usabilidad    & 25 \\
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Pruebas de campo}
+\begin{tabular}{c|c}
+    Característica de calidad & Importancia relativa \\ \hline
+    Conectividad & 25 \\
+    Fiabilidad   & 25 \\
+    Usabilidad   & 50 \\
+\end{tabular}
+\end{table}
+
+\subsection{División del sistema en subsistemas}
+\label{sub:division}
+
+Como se definieron los módulos en la sección \ref{sec:introduccion}, se divide el proyecto en los siguientes subsistemas:
+
+\begin{itemize}
+    \item Parte A. Validación de periféricos.
+    \item Parte B. Generador de informe de secuencia.
+    \item Parte C. Consola de usuario.
+    \item Parte D. Controlador de ensayos.
+    \item Parte E. Interfaz OCD.
+    \item Parte F. Interfaz serie.
+    \item Parte G. Persistencia de datos.
+    \item Parte H. Generador de informes.
+\end{itemize}
+
+\subsection{Determinación de la importancia relativa de los subsistemas}
+\label{sub:determinacion}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{l|c}
+    Subsistema & Importancia Relativa (\%) \\ \hline
+    Parte A. Validación de periféricos         & 25 \\
+    Parte B. Generador de informe de secuencia & 25 \\
+    Parte C. Consola de usuario                &  5 \\
+    Parte D. Controlador de ensayos            & 10 \\
+    Parte E. Interfaz OCD                      & 10 \\
+    Parte F. Interfaz serie                    & 10 \\
+    Parte G. Persistencia de datos             &  5 \\
+    Parte H. Generador de informes             & 10 \\
+\end{tabular}
+\end{table}
+
+\subsection{Determinación de la importancia de test por combinaciones de subsistema / característica de calidad}
+\label{sub:combinacion}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{r|ccccccccc}
+    & IR (\%) & A & B & C & D & E & F & G & H \\ \hline
+    Conectividad  & 30 &    & +  &    & ++ & ++ &    &    &    \\
+    Funcionalidad & 30 &    &    &    &    &    &    &    &    \\
+    Fiabilidad    & 30 &    &    &    &    &    &    &    &    \\
+    Usabilidad    & 10 &    &    &    &    &    &    &    &    \\
+\end{tabular}
+\end{table}
+
 \end{document}
