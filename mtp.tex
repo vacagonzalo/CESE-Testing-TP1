@@ -5,7 +5,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
+\usepackage{authoraftertitle}
 
+\def\doctype{MASTER TEST PLAN}
 \title{Evaluador de microcontroladores para misiones espaciales}
 \author{Gonzalo Nahuel Vaca}
 
@@ -17,7 +19,7 @@
 		\vspace*{1cm}
 		
 		\Huge
-		\textbf{MASTER TEST PLAN}
+		\textbf{\doctype}
 		
 		\vspace{0.5cm}
 		\LARGE
@@ -44,5 +46,59 @@
 \section{Introducción}
 \label{sec:introduccion}
 
+El objetivo de este documento es detallar todos los aspectos referidos al \emph{Master Test Plan} (Plan Maestro de Pruebas) del proyecto ``\MyTitle ''.
+Su función será determinar si un integrado de calificación comercial puede ser utilizado en una misión espacial. Además se espera que permita evaluar distintas técnicas de mitigación de errores.
+El proyecto en desarrollo consiste de un firmware de auto comprobación y un sistema de inyección de \emph{soft-errors}.
+Finalmente, se proponen los siguientes subsistemas:
+
+\begin{itemize}
+	\item Firmware de auto comprobación:
+		\begin{itemize}
+			\item Validación de \emph{CANBUS}.
+			\item Validación de \emph{SPI}.
+			\item Validación de \emph{Watchdog}.
+			\item Validación de \emph{UART}.
+			\item Generador de informe de secuencia.
+		\end{itemize}
+	\item Sistema de inyección de \emph{soft-errors}:
+		\begin{itemize}
+			\item Consola de usuario.
+			\item Controlador de ensayos.
+			\item Interfaz OCD.
+			\item Interfaz serie.
+			\item Persistencia de datos.
+			\item Generador de informes.
+		\end{itemize}
+\end{itemize}
+
+
+\section{Asignaciones}
+\label{sec:asignaciones}
+
+
+\subsection{Responsable}
+\label{sub:responsable}
+
+El responsable de la elaboración de este documento es el ingeniero a cargo del desarrollo del proyecto, \MyAuthor.
+
+\subsection{Contratista}
+\label{sub:contratista}
+
+La asignación es ejecutada bajo responsabilidad de \MyAuthor, jefe de \emph{testing} del desarrollo de este proyecto.
+
+\subsection{Alcances}
+\label{sub:alcances}
+
+El alcance del test de aceptación es el ``\MyTitle '', versión 1.0.
+
+\subsection{Objetivos}
+\label{sub:objetivos}
+
+Los objetivos son:
+
+\begin{itemize}
+	\item Determinar si el sistema cumple con los requerimientos.
+	\item Reportar las diferencias entre lo observado y el comportamiento deseado.
+\end{itemize}
 
 \end{document}
