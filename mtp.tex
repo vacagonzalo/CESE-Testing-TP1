@@ -1,11 +1,13 @@
 \documentclass[
-	14pt,
+    11pt,
+    spanish,
 	a4paper
 ]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage{authoraftertitle}
+\usepackage{float}
 
 \def\doctype{MASTER TEST PLAN}
 \title{Evaluador de microcontroladores para misiones espaciales}
@@ -101,4 +103,44 @@ Los objetivos son:
 	\item Reportar las diferencias entre lo observado y el comportamiento deseado.
 \end{itemize}
 
+
+\section{Estrategia general del \emph{test}}
+\label{sec:estrategia}
+
+\subsection{Características de calidad}
+\label{sub:caracteristicasCalidad}
+
+Se seleccionan solo aquellas características de calidad que tienen un impacto significativo en el producto.
+
+\begin{itemize}
+    \item \underline{30\% Conectividad:} El producto necesita una conexión constante con el servidor \emph{OCD} y con el \emph{CoreSight} para poder cumplir su función. La pérdida de conectividad implica que el ensayo realizado no tiene validez.
+    \item \underline{30\% Funcionalidad:} Se asigna un alto nivel de importancia ya que las funciones del producto impactarán sobre las desiciones que el cliente tome sobre el diseño de satélites.
+    \item \underline{30\% Fiabilidad:} El peso específico asignado a esta característica se justifica por la gran velocidad de las secuencias. Es poco probable que se pueda detectar un error del producto ya que su función es generar \emph{soft-errors}.
+    \item \underline{10\% Usabilidad:} El sistema será utilizado para realizar ensayos específicos. La interfaz de usuario debe ser consitente para evitar fallas por errores humanos.
+\end{itemize}
+
+\subsection{Asignación de niveles de prueba a las características de calidad}
+\label{sub:asignacion}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{r|cccc}
+        & Conectividad & Funcionalidad & Fiabilidad & Usabilidad \\ \hline
+        IR (\%)     & 30 & 30 & 30 & 10 \\
+        Unitaria    &    & ++ &    &    \\
+        Integración & ++ &    & ++ &    \\
+        Sistema     &    & +  &    & +  \\
+        Aceptación  &    & ++ &    & +  \\
+        Campo       & +  &    & +  & ++ \\
+	\end{tabular}
+\end{table}
+
+Se indica a continuación las razones de la asignación de los niveles de prueba:
+
+\begin{itemize}
+    \item \underline{Conectividad:}
+    \item \underline{Funcionalidad:}
+    \item \underline{Fiabilidad:}
+    \item \underline{Usabilidad:}
+\end{itemize}
 \end{document}
