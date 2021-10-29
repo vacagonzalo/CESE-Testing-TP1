@@ -254,9 +254,29 @@ Como se definieron los módulos en la sección \ref{sec:introduccion}, se divide
 \begin{tabular}{r|ccccccccc}
     & IR (\%) & A & B & C & D & E & F & G & H \\ \hline
     Conectividad  & 30 &    & +  &    & ++ & ++ &    &    &    \\
-    Funcionalidad & 30 &    &    &    &    &    &    &    &    \\
-    Fiabilidad    & 30 &    &    &    &    &    &    &    &    \\
-    Usabilidad    & 10 &    &    &    &    &    &    &    &    \\
+    Funcionalidad & 30 & ++ &    &    & ++ &    &    &    &    \\
+    Fiabilidad    & 30 &    & +  &    &    & +  & +  & +  &    \\
+    Usabilidad    & 10 &    &    & ++ &    &    &    & +  & ++ \\
+\end{tabular}
+\end{table}
+
+
+\subsection{Determinación de las técnicas de test a ser utilizadas}
+\label{sub:tecnicas}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{r|cccccccc}
+    & A & B & C & D & E & F & G & H\\ \hline
+    State transition testing   & x & x & x & x & x & x & x & x \\
+    Control flow test          & x & x & x & x & x & x & x & x \\
+    Elementary comparison test & x & x & x & x & x & x & x & x \\
+    Classification-tree method & x & x & x & x & x & x & x & x \\
+    Evolutionary algorithms    & x & x & x & x & x & x & x & x \\
+    Statistical usage testing  & x & x & x & x & x & x & x & x \\
+    Rare event testing         & x & x & x & x & x & x & x & x \\
+    Mutation analysis          & x & x & x & x & x & x & x & x \\
+
 \end{tabular}
 \end{table}
 
