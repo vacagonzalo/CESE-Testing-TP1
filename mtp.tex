@@ -115,9 +115,9 @@ Los objetivos son:
 Se seleccionan solo aquellas características de calidad que tienen un impacto significativo en el producto.
 
 \begin{itemize}
-    \item \underline{30\% Conectividad:} El producto necesita una conexión constante con el servidor \emph{OCD} y con el \emph{CoreSight} para poder cumplir su función. La pérdida de conectividad implica que el ensayo realizado no tiene validez.
+    \item \underline{30\% Conectividad:} El producto necesita una conexión constante con el servidor \emph{On-Chip Debugger (OCD)} y con el \emph{CoreSight} para poder cumplir su función. La pérdida de conectividad implica que el ensayo realizado no tiene validez.
     \item \underline{30\% Funcionalidad:} Se asigna un alto nivel de importancia ya que las funciones del producto impactarán sobre las desiciones que el cliente tome sobre el diseño de satélites.
-    \item \underline{30\% Fiabilidad:} El peso específico asignado a esta característica se justifica por la gran velocidad de las secuencias. Es poco probable que se pueda detectar un error del producto ya que su función es generar \emph{soft-errors}.
+    \item \underline{30\% Fiabilidad:} El peso específico asignado a esta característica se justifica por la necesidad de mantener el correcto funcionamiento durante todo el ensayo. Una funcionalidad poco confiable generaría una imposibilidad para evaluar al microcontrolador bajo prueba.
     \item \underline{10\% Usabilidad:} El sistema será utilizado para realizar ensayos específicos. La interfaz de usuario debe ser consitente para evitar fallas por errores humanos.
 \end{itemize}
 
@@ -268,14 +268,14 @@ Como se definieron los módulos en la sección \ref{sec:introduccion}, se divide
 \centering
 \begin{tabular}{r|cccccccc}
     & A & B & C & D & E & F & G & H\\ \hline
-    State transition testing   & x & x & x & x & x & x & x & x \\
-    Control flow test          & x & x & x & x & x & x & x & x \\
-    Elementary comparison test & x & x & x & x & x & x & x & x \\
-    Classification-tree method & x & x & x & x & x & x & x & x \\
-    Evolutionary algorithms    & x & x & x & x & x & x & x & x \\
-    Statistical usage testing  & x & x & x & x & x & x & x & x \\
-    Rare event testing         & x & x & x & x & x & x & x & x \\
-    Mutation analysis          & x & x & x & x & x & x & x & x \\
+    State transition testing   & x &   &   & x &   & x &   &   \\
+    Control flow test          &   &   & x &   & x &   & x &   \\
+    Elementary comparison test &   &   &   &   &   &   & x &   \\
+    Classification-tree method & x & x &   & x &   & x &   &   \\
+    Evolutionary algorithms    &   &   &   & x &   &   &   &   \\
+    Statistical usage testing  &   &   &   &   &   &   &   & x \\
+    Rare event testing         & x &   &   & x &   &   &   &   \\
+    Mutation analysis          &   &   &   &   &   &   &   &   \\
 
 \end{tabular}
 \end{table}
